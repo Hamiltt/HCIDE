@@ -22,7 +22,7 @@ namespace HCIDE.Services
         {
             _appDataPath = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "YourIDE"
+                "HCIDE"
             );
             Directory.CreateDirectory(_appDataPath);
             _recentProjectsPath = Path.Combine(_appDataPath, "recent.json");
