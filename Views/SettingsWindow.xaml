@@ -1,0 +1,236 @@
+﻿<Window x:Class="HCIDE.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Theme Settings" 
+        Height="700" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#2D2D30"
+        ResizeMode="CanResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" 
+                   Text="Theme Settings" 
+                   FontSize="28" 
+                   FontWeight="Bold"
+                   Foreground="White"
+                   Margin="0,0,0,20"/>
+
+        <!-- Settings Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Editor Colors Section -->
+                <Border Background="#1E1E1E" 
+                        BorderBrush="#3E3E42" 
+                        BorderThickness="1" 
+                        CornerRadius="4"
+                        Padding="20"
+                        Margin="0,0,0,15">
+                    <StackPanel>
+                        <TextBlock Text="Editor Colors" 
+                                   FontSize="18" 
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Margin="0,0,0,15"/>
+
+                        <!-- Color Row Template -->
+                        <Grid Margin="0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Editor Background -->
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Editor Background:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ThemeSettings.EditorBackground, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="0" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="EditorBackground" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Editor Foreground -->
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Editor Foreground:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ThemeSettings.EditorForeground, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="1" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="EditorForeground" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Keyword Color -->
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Keywords:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ThemeSettings.KeywordColor, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="2" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="KeywordColor" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- String Color -->
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Strings:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ThemeSettings.StringColor, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="3" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="StringColor" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Comment Color -->
+                            <TextBlock Grid.Row="4" Grid.Column="0" Text="Comments:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ThemeSettings.CommentColor, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="4" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="CommentColor" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Number Color -->
+                            <TextBlock Grid.Row="5" Grid.Column="0" Text="Numbers:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding ThemeSettings.NumberColor, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="5" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="NumberColor" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Function Color -->
+                            <TextBlock Grid.Row="6" Grid.Column="0" Text="Functions:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ThemeSettings.FunctionColor, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="6" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="FunctionColor" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Class Color -->
+                            <TextBlock Grid.Row="7" Grid.Column="0" Text="Classes:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding ThemeSettings.ClassColor, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="7" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="ClassColor" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+
+                            <!-- Selection Background -->
+                            <TextBlock Grid.Row="8" Grid.Column="0" Text="Selection:" Foreground="White" VerticalAlignment="Center" Margin="0,5"/>
+                            <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding ThemeSettings.SelectionBackground, UpdateSourceTrigger=PropertyChanged}" 
+                                     Margin="10,5" Padding="8" Background="#3E3E42" Foreground="White" BorderBrush="#569CD6" BorderThickness="1"/>
+                            <Button Grid.Row="8" Grid.Column="2" Content="🎨" Command="{Binding PickColorCommand}" CommandParameter="SelectionBackground" 
+                                    Margin="5" Padding="10,8" Background="#0E639C" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Font Settings Section -->
+                <Border Background="#1E1E1E" 
+                        BorderBrush="#3E3E42" 
+                        BorderThickness="1" 
+                        CornerRadius="4"
+                        Padding="20">
+                    <StackPanel>
+                        <TextBlock Text="Font Settings" 
+                                   FontSize="18" 
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   Margin="0,0,0,15"/>
+
+                        <!-- Font Family -->
+                        <Grid Margin="0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Font Family:" Foreground="White" VerticalAlignment="Center"/>
+                            <ComboBox Grid.Column="1" 
+                                      SelectedItem="{Binding ThemeSettings.FontFamily}"
+                                      Margin="10,0"
+                                      Padding="8"
+                                      Background="#3E3E42"
+                                      Foreground="White"
+                                      BorderBrush="#569CD6"
+                                      BorderThickness="1">
+                                <ComboBoxItem Content="Consolas"/>
+                                <ComboBoxItem Content="Courier New"/>
+                                <ComboBoxItem Content="Cascadia Code"/>
+                                <ComboBoxItem Content="Fira Code"/>
+                                <ComboBoxItem Content="JetBrains Mono"/>
+                            </ComboBox>
+                        </Grid>
+
+                        <!-- Font Size -->
+                        <Grid Margin="0,15,0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Font Size:" Foreground="White" VerticalAlignment="Center"/>
+                            <Slider Grid.Column="1" 
+                                    Value="{Binding ThemeSettings.FontSize}" 
+                                    Minimum="8" 
+                                    Maximum="32" 
+                                    TickFrequency="1"
+                                    IsSnapToTickEnabled="True"
+                                    Margin="10,0"
+                                    VerticalAlignment="Center"/>
+                            <TextBlock Grid.Column="2" 
+                                       Text="{Binding ThemeSettings.FontSize}" 
+                                       Foreground="White" 
+                                       Width="30"
+                                       TextAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="2" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Center"
+                    Margin="0,20,0,0">
+            <Button Content="🎲 Randomize Colors" 
+                    Command="{Binding RandomizeColorsCommand}"
+                    Padding="20,12"
+                    Margin="5"
+                    Background="#0E639C"
+                    Foreground="White"
+                    BorderThickness="0"
+                    FontSize="14"
+                    Cursor="Hand"/>
+            <Button Content="Reset to Default" 
+                    Command="{Binding ResetToDefaultCommand}"
+                    Padding="20,12"
+                    Margin="5"
+                    Background="#424242"
+                    Foreground="White"
+                    BorderThickness="0"
+                    FontSize="14"
+                    Cursor="Hand"/>
+            <Button Content="Apply" 
+                    Command="{Binding ApplyThemeCommand}"
+                    Padding="20,12"
+                    Margin="5"
+                    Background="#0E639C"
+                    Foreground="White"
+                    BorderThickness="0"
+                    FontSize="14"
+                    Cursor="Hand"/>
+            <Button Content="Save and Close" 
+                    Command="{Binding SaveThemeCommand}"
+                    Click="SaveButton_Click"
+                    Padding="20,12"
+                    Margin="5"
+                    Background="#107C10"
+                    Foreground="White"
+                    BorderThickness="0"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Cursor="Hand"/>
+        </StackPanel>
+    </Grid>
+</Window>
